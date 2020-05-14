@@ -7,7 +7,7 @@ COPY package.json package-lock.json /app/
 RUN npm install --production && npm cache clean --force
 
 COPY . /app
-RUN chmod +x PSDK_Test
+RUN chmod +x /app/*
 
 CMD ["/app/server.js"]
 
