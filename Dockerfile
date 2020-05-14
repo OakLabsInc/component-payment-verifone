@@ -4,12 +4,12 @@ WORKDIR /app
 
 COPY package.json package-lock.json /app/
 
-RUN npm install --production && npm cache clean --force
+RUN npm install --production && npm cache clean --force \
+    && chmod +x PSDK_Test
 
 COPY . /app
-RUN chmod +x PSDK_Test
 
-CMD ["/app"]
+CMD ["/app/server.js"]
 
 ENV TZ=America/Los_Angeles \
     PORT=9000 \
