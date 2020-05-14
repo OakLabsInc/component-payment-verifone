@@ -24,7 +24,7 @@ app.post('/', function (req, res) {
   // var child = spawn(join(__dirname,"PSDK_Test"));
   // console.log(req.body)
 
-  // this launches the executable and returns immediately
+  // this launches the executable and returns immediately ... argv is an array below
   var child = execFile(join(__dirname,"PSDK_Test"), [],
     function (error, stdout, stderr) {
       if(error) {

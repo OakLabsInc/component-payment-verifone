@@ -7,6 +7,7 @@ COPY package.json package-lock.json /app/
 RUN npm install --production && npm cache clean --force
 
 COPY . /app
+RUN chmod +x ./app/PSDK_Test
 
 CMD ["/app"]
 
