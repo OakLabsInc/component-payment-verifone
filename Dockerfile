@@ -10,7 +10,7 @@ RUN npm install --production \
     && mkdir /home/rjoffray/oak/psdk-demo \
     && mkdir /home/rjoffray/oak/psdk-demo/lib
 
-COPY libPaymentSdk.* /home/rjoffray/oak/psdk-demo/lib
+COPY libPaymentSdk.* /home/rjoffray/oak/psdk-demo/lib/
 COPY . /app
 # RUN chmod +x /app/*
 
