@@ -10,7 +10,7 @@
     "test": "exit 0;"
   },
   "engines": {
-    "node": "10.15.3"
+    "node": "10.20.1"
   },
   "repository": {
     "type": "git",
@@ -26,6 +26,7 @@
     "body-parser": "~1.19.0",
     "dotenv": "~8.2.0",
     "express": "~4.16.3",
+    "jslint": "^0.12.1",
     "lodash": "~4.17.11"
   },
   "private": true

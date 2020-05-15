@@ -1,15 +1,16 @@
-FROM node:10.15.3-stretch
+FROM node:10.20
 
 WORKDIR /app
 
 COPY package.json package-lock.json /app/
 
-RUN npm install --production && npm cache clean --force
+RUN npm install --production
 
 COPY . /app
-RUN chmod +x /app/*
+# RUN chmod +x /app/*
 
-CMD ["/app/server.js"]
+ENTRYPOINT [ "node" ]
+CMD ["server.js"]
 
 ENV TZ=America/Los_Angeles \
     PORT=9000 \
