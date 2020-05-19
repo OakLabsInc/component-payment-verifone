@@ -5,9 +5,9 @@ WORKDIR /app
 COPY package.json package-lock.json /app/
 
 RUN npm install --production \
-    && mkdir -p /home/rjoffray/oak/psdk-demo/lib
+    && mkdir -p /home/swhite/oak/psdk-demo/lib
 
-COPY libPaymentSdk.* /home/rjoffray/oak/psdk-demo/lib/
+COPY libPaymentSdk.* /home/swhite/oak/psdk-demo/lib/
 COPY . /app
 # RUN chmod +x /app/*
 
