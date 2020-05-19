@@ -36,6 +36,10 @@ app.post('/', function (req, res) {
       // You'd want to check err/stderr as well!
       console.log("Here is the complete output of the program: ");
       console.log(stdout)
+  })
+
+  child.stdout.on('data', function(data) {
+    console.log(data.toString()); 
   });
 
 })
