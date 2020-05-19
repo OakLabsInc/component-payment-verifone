@@ -7,7 +7,9 @@ COPY package.json package-lock.json /app/
 RUN npm install --production \
     && mkdir -p /home/swhite/oak/psdk-demo/lib \
     && apt-get update \
-    apt-get install nodejs
+    && apt-get -y upgrade \ 
+    && apt-get install curl \
+    && curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash - 
 
 COPY libPaymentSdk.* /home/swhite/oak/psdk-demo/lib/
 COPY . /app
