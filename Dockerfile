@@ -8,9 +8,9 @@ RUN mkdir -p /home/swhite/oak/psdk-demo/lib \
     && apt-get update \
     && mkdir -p /home/swhite/oak/psdk-demo/lib \
     && apt-get install curl \
-    && curl -sL https://deb.nodesource.com/setup_12.x | sudo bash - \
-    && apt install nodejs \
-    && npm install --production \
+    && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash \
+    && nvm install node \
+    && npm install --production
 
 COPY libPaymentSdk.* /home/swhite/oak/psdk-demo/lib/
 COPY . /app
