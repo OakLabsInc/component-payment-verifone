@@ -4,12 +4,13 @@ WORKDIR /app
 
 COPY package.json package-lock.json /app/
 
-RUN npm install --production \
-    && mkdir -p /home/swhite/oak/psdk-demo/lib \
+RUN mkdir -p /home/swhite/oak/psdk-demo/lib \
     && apt-get update \
-    && apt-get -y upgrade \ 
+    && mkdir -p /home/swhite/oak/psdk-demo/lib \
     && apt-get install curl \
-    && curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash - 
+    && curl -sL https://deb.nodesource.com/setup_12.x | sudo bash - \
+    && apt install nodejs \
+    && npm install --production \
 
 COPY libPaymentSdk.* /home/swhite/oak/psdk-demo/lib/
 COPY . /app
