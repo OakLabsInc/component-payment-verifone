@@ -2,18 +2,16 @@ FROM debian:bullseye-slim
 
 WORKDIR /app
 
-COPY package.json package-lock.json /app/
+ARG DEBIAN_FRONTEND=noninteractive
 
-RUN mkdir -p /home/swhite/oak/psdk-demo/lib \
-    && apt-get update \
-    && apt-get -yq install curl gnupg \
-    && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash \
-    && nvm install node \
-    && npm install --production
+RUN apt-get update \
+    && apt-get -yq install --no-install-recommends nodejs npm \
+    && mkdir -p /home/swhite/oak/psdk-demo/lib
 
-COPY libPaymentSdk.* /home/swhite/oak/psdk-demo/lib/
 COPY . /app
-# RUN chmod +x /app/*
+COPY libPaymentSdk.* /home/swhite/oak/psdk-demo/lib/
+
+RUN npm install --production
 
 ENTRYPOINT [ "node" ]
 CMD ["server.js"]
