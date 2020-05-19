@@ -25,7 +25,7 @@ app.post('/', function (req, res) {
   // console.log(req.body)
 
   // this launches the executable and returns immediately
-  var child = execFile(join(__dirname,"PSDK_Test"), [req.body.cart, req.body.terminalIp],
+  var child = execFile(join(__dirname,"PSDK_Test"), [JSON.stringify(req.body.cart), req.body.terminalIp],
 
     function (error, stdout, stderr) {
       if(error) {
