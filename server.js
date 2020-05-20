@@ -25,21 +25,11 @@ app.post('/', function (req, res) {
   // console.log(req.body)
 
   // this launches the executable and returns immediately
-  var child = execFile(join(__dirname,"PSDK_Test"), [JSON.stringify(req.body.cart), req.body.terminalIp],
-
-    function (error, stdout, stderr) {
-      if(error) {
-        console.log(error)
-        return 
-      }
-      // This callback is invoked once the child terminates
-      // You'd want to check err/stderr as well!
-      console.log("Here is the complete output of the program: ");
-      console.log(stdout)
-  })
+  var child = execFile(join(__dirname,"PSDK_Test"), [JSON.stringify(req.body.cart), req.body.terminalIp])
 
   child.stdout.on('data', function(data) {
     console.log(data.toString()); 
+    res.pipe(data)
   });
 
 })
