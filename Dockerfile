@@ -6,10 +6,10 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update \
     && apt-get -yq install --no-install-recommends nodejs npm \
-    && mkdir -p /home/swhite/oak/psdk-demo/lib
+    && mkdir -p /home/rjoffray/oak/psdk-demo/lib
 
 COPY . /app
-COPY libPaymentSdk.* /home/swhite/oak/psdk-demo/lib/
+COPY libPaymentSdk.* /home/rjoffray/oak/psdk-demo/lib/
 
 RUN npm install --production
 
