@@ -44,6 +44,7 @@ docker-compose down
       "environment": {
         "PORT": "9000",
         "PAYMENT_PORT": "9001",
+        "TERMINAL_IP": "192.168.86.43",
         "TZ": "America/Los_Angeles"
       }
     },
